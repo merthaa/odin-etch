@@ -28,3 +28,39 @@ const ubahUkuranKotakBtn = document.createElement("button");
 ubahUkuranKotakBtn.textContent = "Ubah ukuran Kotak";
 document.body.before(ubahUkuranKotakBtn, container);
 
+function removeKotak() {
+    const gridKotak = document.querySelectorAll(".gridKotak");
+    gridKotak.forEach((gridKotak) => {
+        gridKotak.remove();
+    });
+}
+
+let newNum = 0;
+function newGridNum() {
+    let value = false;
+    while (!value) {
+        newNum = +prompt("tambahkan angka antara 1 - 100");
+        if (newNum === null) {
+            alert("abnormal, try again!");
+            continue;
+        }
+        if (
+            isNaN(newNum) ||
+            newNum < 1 ||
+            newNum > 100 ||
+            !Number.isInteger(newNum)
+        ) {
+            alert("masukin yang bener bang!");
+        } else {
+            value = true;
+        }
+    }
+    return newNum;
+}
+
+ubahUkuranKotakBtn.addEventListener("click", () => {
+    newNum = newGridNum();
+    removeKotak();
+    gridKotak(newNum);
+    hoverChange();
+});
