@@ -1,7 +1,7 @@
 const container = document.querySelector("#container");
 
 function gridKotak(num) {
-    let length = 500;
+    let length = 350;
     for (i = 0; i < num * num; i++) {
         const gridKotak = document.createElement("div");
         gridKotak.className = "gridKotak";
